@@ -1,0 +1,41 @@
+{
+  "project_name": "JeanTrail",
+  "domain": "jeantrail.com",
+  "language": "ar,en",
+  "backend": "FastAPI",
+  "frontend": "Next.js",
+  "database": "JSON",
+  "integrations": {
+    "facebook": true,
+    "instagram": true,
+    "google_cloud": true,
+    "whatsapp_business": true,
+    "telegram_bot": true,
+    "tiktok_api": true,
+    "x_twitter": true,
+    "snapchat_ads": true,
+    "amazon_ads": true,
+    "meta_messenger": true,
+    "gemini_api": true,
+    "supabase": true,
+    "stripe": true,
+    "cloudinary": true,
+    "mailerlite": true
+  },
+  "image_processing": {
+    "background_removal": true,
+    "watermark_removal": true,
+    "compression": true,
+    "format": "webp"
+  },
+  "product_ai_tasks": {
+    "auto_description": true,
+    "trend_detection": true,
+    "pricing_estimation": true,
+    "category_suggestion": true
+  },
+  "auto_sync_schedule": "daily",
+  "admin_emails": [
+    "support@jeantrail.com"
+  ]
+}
