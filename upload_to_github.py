@@ -4,7 +4,7 @@ import subprocess
 
 load_dotenv()
 GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
-GITHUB_USER = "youandme"
+GITHUB_USER = "1youandme"
 REPO_NAME = "jeantrail-dashboard"
 PROJECT_PATH = os.path.abspath(".")
 
