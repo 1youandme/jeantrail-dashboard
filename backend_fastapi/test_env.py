@@ -1,0 +1,3 @@
+from services.supabase_service import get_products_from_supabase
+
+get_products_from_supabase()

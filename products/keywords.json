@@ -1,0 +1,26 @@
+{
+  "men": [
+    "men jeans", "men t-shirts", "men jackets", "men hoodies", "men shoes", 
+    "men classic shoes", "men sneakers", "men socks", "men wallets", 
+    "men accessories", "men underwear", "men belts", "men watches"
+  ],
+  "women": [
+    "women dresses", "women jeans", "women tops", "women jackets", "women shoes", 
+    "women classic shoes", "women sneakers", "women socks", "women wallets", 
+    "women accessories", "women underwear", "women belts", "women watches"
+  ],
+  "boys": [
+    "boys shirts", "boys pants", "boys jackets", "boys shoes", 
+    "boys sneakers", "boys socks", "boys underwear", "boys accessories"
+  ],
+  "girls": [
+    "girls dresses", "girls jeans", "girls jackets", "girls shoes", 
+    "girls sneakers", "girls socks", "girls underwear", "girls accessories"
+  ],
+  "newborn": [
+    "newborn clothes", "newborn rompers", "newborn sets", "newborn shoes"
+  ],
+  "pets": [
+    "pet clothes", "dog shoes", "cat shoes", "pet jackets"
+  ]
+}

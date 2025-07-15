@@ -1,0 +1,11 @@
+{
+  "category": "pets",
+  "products": [
+    {
+      "type": "ملابس"
+    },
+    {
+      "type": "أحذية"
+    }
+  ]
+}

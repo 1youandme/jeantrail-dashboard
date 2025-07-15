@@ -3,3 +3,5 @@ Pillow
 rembg
 pytesseract
 python-dotenv
+tenacity
+openai

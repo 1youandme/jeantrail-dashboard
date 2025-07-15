@@ -1,0 +1,402 @@
+[
+  {
+    "blogger": "Charli D'Amelio",
+    "platform": "tiktok",
+    "followers": "150M+",
+    "product_name": "Trending product by Charli D'Amelio",
+    "source_url": "https://www.tiktok.com/@charlidamelio",
+    "detected_at": "2025-07-15T04:28:47.843522"
+  },
+  {
+    "blogger": "Khaby Lame",
+    "platform": "tiktok",
+    "followers": "160M+",
+    "product_name": "Trending product by Khaby Lame",
+    "source_url": "https://www.tiktok.com/@khaby.lame",
+    "detected_at": "2025-07-15T04:28:47.843572"
+  },
+  {
+    "blogger": "Bella Poarch",
+    "platform": "tiktok",
+    "followers": "90M+",
+    "product_name": "Trending product by Bella Poarch",
+    "source_url": "https://www.tiktok.com/@bellapoarch",
+    "detected_at": "2025-07-15T04:28:47.843583"
+  },
+  {
+    "blogger": "Addison Rae",
+    "platform": "tiktok",
+    "followers": "88M+",
+    "product_name": "Trending product by Addison Rae",
+    "source_url": "https://www.tiktok.com/@addisonre",
+    "detected_at": "2025-07-15T04:28:47.843591"
+  },
+  {
+    "blogger": "Zach King",
+    "platform": "tiktok",
+    "followers": "80M+",
+    "product_name": "Trending product by Zach King",
+    "source_url": "https://www.tiktok.com/@zachking",
+    "detected_at": "2025-07-15T04:28:47.843598"
+  },
+  {
+    "blogger": "Spencer X",
+    "platform": "tiktok",
+    "followers": "55M+",
+    "product_name": "Trending product by Spencer X",
+    "source_url": "https://www.tiktok.com/@spencerx",
+    "detected_at": "2025-07-15T04:28:47.843605"
+  },
+  {
+    "blogger": "Michael Le",
+    "platform": "tiktok",
+    "followers": "52M+",
+    "product_name": "Trending product by Michael Le",
+    "source_url": "https://www.tiktok.com/@justmaiko",
+    "detected_at": "2025-07-15T04:28:47.843612"
+  },
+  {
+    "blogger": "Dixie D’Amelio",
+    "platform": "tiktok",
+    "followers": "57M+",
+    "product_name": "Trending product by Dixie D’Amelio",
+    "source_url": "https://www.tiktok.com/@dixiedamelio",
+    "detected_at": "2025-07-15T04:28:47.843620"
+  },
+  {
+    "blogger": "Brent Rivera",
+    "platform": "tiktok",
+    "followers": "45M+",
+    "product_name": "Trending product by Brent Rivera",
+    "source_url": "https://www.tiktok.com/@brentrivera",
+    "detected_at": "2025-07-15T04:28:47.843627"
+  },
+  {
+    "blogger": "Avani Gregg",
+    "platform": "tiktok",
+    "followers": "42M+",
+    "product_name": "Trending product by Avani Gregg",
+    "source_url": "https://www.tiktok.com/@avani",
+    "detected_at": "2025-07-15T04:28:47.843634"
+  },
+  {
+    "blogger": "Kris HC",
+    "platform": "tiktok",
+    "followers": "48M+",
+    "product_name": "Trending product by Kris HC",
+    "source_url": "https://www.tiktok.com/@kris.collins",
+    "detected_at": "2025-07-15T04:28:47.843641"
+  },
+  {
+    "blogger": "Nikita Dragun",
+    "platform": "tiktok",
+    "followers": "28M+",
+    "product_name": "Trending product by Nikita Dragun",
+    "source_url": "https://www.tiktok.com/@nikitadragun",
+    "detected_at": "2025-07-15T04:28:47.843658"
+  },
+  {
+    "blogger": "Loren Gray",
+    "platform": "tiktok",
+    "followers": "55M+",
+    "product_name": "Trending product by Loren Gray",
+    "source_url": "https://www.tiktok.com/@lorengray",
+    "detected_at": "2025-07-15T04:28:47.843664"
+  },
+  {
+    "blogger": "Bryce Hall",
+    "platform": "tiktok",
+    "followers": "25M+",
+    "product_name": "Trending product by Bryce Hall",
+    "source_url": "https://www.tiktok.com/@brycehall",
+    "detected_at": "2025-07-15T04:28:47.843675"
+  },
+  {
+    "blogger": "Niana Guerrero",
+    "platform": "tiktok",
+    "followers": "40M+",
+    "product_name": "Trending product by Niana Guerrero",
+    "source_url": "https://www.tiktok.com/@nianaguerrero",
+    "detected_at": "2025-07-15T04:28:47.843684"
+  },
+  {
+    "blogger": "Jojo Siwa",
+    "platform": "tiktok",
+    "followers": "45M+",
+    "product_name": "Trending product by Jojo Siwa",
+    "source_url": "https://www.tiktok.com/@itsjojosiwa",
+    "detected_at": "2025-07-15T04:28:47.843691"
+  },
+  {
+    "blogger": "Baby Ariel",
+    "platform": "tiktok",
+    "followers": "35M+",
+    "product_name": "Trending product by Baby Ariel",
+    "source_url": "https://www.tiktok.com/@babyariel",
+    "detected_at": "2025-07-15T04:28:47.843697"
+  },
+  {
+    "blogger": "Arishfa Khan",
+    "platform": "tiktok",
+    "followers": "30M+",
+    "product_name": "Trending product by Arishfa Khan",
+    "source_url": "https://www.tiktok.com/@arishfakhan138",
+    "detected_at": "2025-07-15T04:28:47.843704"
+  },
+  {
+    "blogger": "Danielle Cohn",
+    "platform": "tiktok",
+    "followers": "20M+",
+    "product_name": "Trending product by Danielle Cohn",
+    "source_url": "https://www.tiktok.com/@daniellecohn",
+    "detected_at": "2025-07-15T04:28:47.843710"
+  },
+  {
+    "blogger": "Savannah LaBrant",
+    "platform": "tiktok",
+    "followers": "30M+",
+    "product_name": "Trending product by Savannah LaBrant",
+    "source_url": "https://www.tiktok.com/@savv.labrant",
+    "detected_at": "2025-07-15T04:28:47.843716"
+  },
+  {
+    "blogger": "Kristen Hancher",
+    "platform": "tiktok",
+    "followers": "24M+",
+    "product_name": "Trending product by Kristen Hancher",
+    "source_url": "https://www.tiktok.com/@kristenhancher",
+    "detected_at": "2025-07-15T04:28:47.843722"
+  },
+  {
+    "blogger": "Jannat Zubair",
+    "platform": "tiktok",
+    "followers": "42M+",
+    "product_name": "Trending product by Jannat Zubair",
+    "source_url": "https://www.tiktok.com/@jannatzubair29",
+    "detected_at": "2025-07-15T04:28:47.843728"
+  },
+  {
+    "blogger": "Sommer Ray",
+    "platform": "tiktok",
+    "followers": "25M+",
+    "product_name": "Trending product by Sommer Ray",
+    "source_url": "https://www.tiktok.com/@sommerray",
+    "detected_at": "2025-07-15T04:28:47.843734"
+  },
+  {
+    "blogger": "Riyaz Aly",
+    "platform": "tiktok",
+    "followers": "45M+",
+    "product_name": "Trending product by Riyaz Aly",
+    "source_url": "https://www.tiktok.com/@riyaz.14",
+    "detected_at": "2025-07-15T04:28:47.843741"
+  },
+  {
+    "blogger": "Gilmher Croes",
+    "platform": "tiktok",
+    "followers": "32M+",
+    "product_name": "Trending product by Gilmher Croes",
+    "source_url": "https://www.tiktok.com/@gilmhercroes",
+    "detected_at": "2025-07-15T04:28:47.843747"
+  },
+  {
+    "blogger": "Huda Kattan",
+    "platform": "instagram",
+    "followers": "53M+",
+    "product_name": "Trending product by Huda Kattan",
+    "source_url": "https://www.instagram.com/huda",
+    "detected_at": "2025-07-15T04:28:47.843755"
+  },
+  {
+    "blogger": "Zach King",
+    "platform": "instagram",
+    "followers": "28M+",
+    "product_name": "Trending product by Zach King",
+    "source_url": "https://www.instagram.com/zachking",
+    "detected_at": "2025-07-15T04:28:47.843762"
+  },
+  {
+    "blogger": "Lele Pons",
+    "platform": "instagram",
+    "followers": "50M+",
+    "product_name": "Trending product by Lele Pons",
+    "source_url": "https://www.instagram.com/lelepons",
+    "detected_at": "2025-07-15T04:28:47.843768"
+  },
+  {
+    "blogger": "James Charles",
+    "platform": "instagram",
+    "followers": "24M+",
+    "product_name": "Trending product by James Charles",
+    "source_url": "https://www.instagram.com/jamescharles",
+    "detected_at": "2025-07-15T04:28:47.843774"
+  },
+  {
+    "blogger": "Sommer Ray",
+    "platform": "instagram",
+    "followers": "26M+",
+    "product_name": "Trending product by Sommer Ray",
+    "source_url": "https://www.instagram.com/sommerray",
+    "detected_at": "2025-07-15T04:28:47.843780"
+  },
+  {
+    "blogger": "Kylie Jenner",
+    "platform": "instagram",
+    "followers": "390M+",
+    "product_name": "Trending product by Kylie Jenner",
+    "source_url": "https://www.instagram.com/kyliejenner",
+    "detected_at": "2025-07-15T04:28:47.843786"
+  },
+  {
+    "blogger": "Kim Kardashian",
+    "platform": "instagram",
+    "followers": "350M+",
+    "product_name": "Trending product by Kim Kardashian",
+    "source_url": "https://www.instagram.com/kimkardashian",
+    "detected_at": "2025-07-15T04:28:47.843795"
+  },
+  {
+    "blogger": "Khloé Kardashian",
+    "platform": "instagram",
+    "followers": "290M+",
+    "product_name": "Trending product by Khloé Kardashian",
+    "source_url": "https://www.instagram.com/khloekardashian",
+    "detected_at": "2025-07-15T04:28:47.843803"
+  },
+  {
+    "blogger": "Chiara Ferragni",
+    "platform": "instagram",
+    "followers": "28M+",
+    "product_name": "Trending product by Chiara Ferragni",
+    "source_url": "https://www.instagram.com/chiaraferragni",
+    "detected_at": "2025-07-15T04:28:47.843810"
+  },
+  {
+    "blogger": "NikkieTutorials",
+    "platform": "instagram",
+    "followers": "18M+",
+    "product_name": "Trending product by NikkieTutorials",
+    "source_url": "https://www.instagram.com/nikkietutorials",
+    "detected_at": "2025-07-15T04:28:47.843816"
+  },
+  {
+    "blogger": "Liza Koshy",
+    "platform": "instagram",
+    "followers": "20M+",
+    "product_name": "Trending product by Liza Koshy",
+    "source_url": "https://www.instagram.com/lizakoshy",
+    "detected_at": "2025-07-15T04:28:47.843823"
+  },
+  {
+    "blogger": "Amanda Cerny",
+    "platform": "instagram",
+    "followers": "24M+",
+    "product_name": "Trending product by Amanda Cerny",
+    "source_url": "https://www.instagram.com/amandacerny",
+    "detected_at": "2025-07-15T04:28:47.843829"
+  },
+  {
+    "blogger": "Jay Shetty",
+    "platform": "instagram",
+    "followers": "13M+",
+    "product_name": "Trending product by Jay Shetty",
+    "source_url": "https://www.instagram.com/jayshetty",
+    "detected_at": "2025-07-15T04:28:47.843836"
+  },
+  {
+    "blogger": "Nailea Devora",
+    "platform": "instagram",
+    "followers": "10M+",
+    "product_name": "Trending product by Nailea Devora",
+    "source_url": "https://www.instagram.com/naileadevora",
+    "detected_at": "2025-07-15T04:28:47.843842"
+  },
+  {
+    "blogger": "Cameron Dallas",
+    "platform": "instagram",
+    "followers": "21M+",
+    "product_name": "Trending product by Cameron Dallas",
+    "source_url": "https://www.instagram.com/camerondallas",
+    "detected_at": "2025-07-15T04:28:47.843848"
+  },
+  {
+    "blogger": "Alissa Violet",
+    "platform": "instagram",
+    "followers": "11M+",
+    "product_name": "Trending product by Alissa Violet",
+    "source_url": "https://www.instagram.com/alissaviolet",
+    "detected_at": "2025-07-15T04:28:47.843854"
+  },
+  {
+    "blogger": "Kayla Itsines",
+    "platform": "instagram",
+    "followers": "14M+",
+    "product_name": "Trending product by Kayla Itsines",
+    "source_url": "https://www.instagram.com/kayla_itsines",
+    "detected_at": "2025-07-15T04:28:47.843860"
+  },
+  {
+    "blogger": "Lauren Conrad",
+    "platform": "instagram",
+    "followers": "7M+",
+    "product_name": "Trending product by Lauren Conrad",
+    "source_url": "https://www.instagram.com/laurenconrad",
+    "detected_at": "2025-07-15T04:28:47.843866"
+  },
+  {
+    "blogger": "Jay Alvarrez",
+    "platform": "instagram",
+    "followers": "7M+",
+    "product_name": "Trending product by Jay Alvarrez",
+    "source_url": "https://www.instagram.com/jayalvarrez",
+    "detected_at": "2025-07-15T04:28:47.843873"
+  },
+  {
+    "blogger": "Eva Gutowski",
+    "platform": "instagram",
+    "followers": "8M+",
+    "product_name": "Trending product by Eva Gutowski",
+    "source_url": "https://www.instagram.com/mylifeaseva",
+    "detected_at": "2025-07-15T04:28:47.843879"
+  },
+  {
+    "blogger": "Rachel Brathen",
+    "platform": "instagram",
+    "followers": "2M+",
+    "product_name": "Trending product by Rachel Brathen",
+    "source_url": "https://www.instagram.com/yoga_girl",
+    "detected_at": "2025-07-15T04:28:47.843885"
+  },
+  {
+    "blogger": "Maja Malnar",
+    "platform": "instagram",
+    "followers": "1.5M+",
+    "product_name": "Trending product by Maja Malnar",
+    "source_url": "https://www.instagram.com/majamalnar",
+    "detected_at": "2025-07-15T04:28:47.843891"
+  },
+  {
+    "blogger": "Sjana Elise",
+    "platform": "instagram",
+    "followers": "1.2M+",
+    "product_name": "Trending product by Sjana Elise",
+    "source_url": "https://www.instagram.com/sjanaelise",
+    "detected_at": "2025-07-15T04:28:47.843897"
+  },
+  {
+    "blogger": "Brittany Xavier",
+    "platform": "instagram",
+    "followers": "2.5M+",
+    "product_name": "Trending product by Brittany Xavier",
+    "source_url": "https://www.instagram.com/brittanyxavier",
+    "detected_at": "2025-07-15T04:28:47.843903"
+  },
+  {
+    "blogger": "Joanna Kuchta",
+    "platform": "instagram",
+    "followers": "1M+",
+    "product_name": "Trending product by Joanna Kuchta",
+    "source_url": "https://www.instagram.com/joannakuchta",
+    "detected_at": "2025-07-15T04:28:47.843909"
+  }
+]

@@ -1,0 +1,1016 @@
+🧭 Project Map:
+==================================================
+📄 .env
+    ── محتوى مختصر:
+    GITHUB_TOKEN=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
+    GITHUB_USERNAME=1youandme
+    REPO_NAME=jeantrail-dashboard
+    
+    # SUPABASE
+    SUPABASE_URL=https://csuoqssdpzcemacqkwpy.supabase.co
+    SUPABASE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNzdW9xc3NkcHpjZW1hY3Frd3B5Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc1MTgxOTk5NCwiZXhwIjoyMDY3Mzk1OTk0fQ.N339dkytTZN9cdNN4_jYXBFIHw-I0BWTGZUpcwV3puk
+📁 .github/
+  📁 workflows/
+    📄 deploy.yml
+    ── محتوى مختصر:
+    name: Auto Scrape & Upload Products
+    
+    on:
+      push:
+        branches: [main]
+      schedule:
+        - cron: '0 4 * * *'  # ⏰ كل يوم الساعة 4 صباحًا UTC
+    
+    jobs:
+      scrape_and_upload:
+    ...
+    📄 enhanced_pipeline.yml
+    ── محتوى مختصر:
+    name: 📸 Upload Blogger Products Automatically
+    
+    on:
+      workflow_dispatch:         # ✅ تشغيل يدوي
+      schedule:
+        - cron: '0 5 * * *'       # ✅ تشغيل يومي الساعة 5 صباحًا (UTC)
+    
+    jobs:
+      run-enhanced-pipeline:
+        runs-on: ubuntu-latest
+    ...
+    📄 main.yml
+    ── محتوى مختصر:
+    name: Deploy to Vercel
+    
+    on:
+      push:
+        branches:
+          - main
+    
+    jobs:
+      deploy:
+        runs-on: ubuntu-latest
+    ...
+    📄 move_files.py
+    ── محتوى مختصر:
+    import os
+    import shutil
+    
+    # المسار الأساسي للمشروع
+    base_dir = os.path.abspath(os.path.dirname(__file__))
+    
+    # المسارات
+    source_paths = [
+        "run_pipeline.py",
+        "scripts/results/portable_blender.json",
+    ...
+    📄 pipeline.yml
+    ── محتوى مختصر:
+    name: 🛒 Scrape & Upload Products from Alibaba
+    
+    on:
+      workflow_dispatch:
+      schedule:
+        - cron: '0 3 * * *'  # يوميًا 3 صباحًا UTC
+    
+    jobs:
+      run-pipeline:
+        runs-on: ubuntu-latest
+    ...
+📄 README.md
+    ── محتوى مختصر:
+    # jeantrail-dashboard
+📁 alibaba_scraper/
+  📄 download_images.js
+    ── محتوى مختصر:
+    const axios = require('axios');
+    const fs = require('fs-extra');
+    const path = require('path');
+    
+    const PRODUCT_DIR = path.join(__dirname, 'results', 'portable_blender');
+    const OUTPUT_IMG_DIR = path.join(PRODUCT_DIR, 'images');
+    fs.ensureDirSync(OUTPUT_IMG_DIR);
+    
+    const products = fs.readJsonSync(path.join(PRODUCT_DIR, 'products.json'));
+    
+    ...
+  📄 filter_images.py
+    ── محتوى مختصر:
+    import pytesseract
+    from PIL import Image
+    import os
+    import shutil
+    
+    input_folder = r'C:\Users\dell\JeanTrail_AI\alibaba_scraper\results\portable_blender\images'
+    output_folder = os.path.join(input_folder, 'filtered')
+    os.makedirs(output_folder, exist_ok=True)
+    
+    def has_text(image_path):
+    ...
+  📄 logo.png
+  📄 portable_blender.json
+  📄 process_images.py
+    ── محتوى مختصر:
+    from rembg import remove
+    from PIL import Image
+    import os
+    
+    input_folder = r'C:\Users\dell\JeanTrail_AI\alibaba_scraper\results\portable_blender\images\filtered'
+    logo_path = r'C:\Users\dell\JeanTrail_AI\assets\jeantrail_logo.png'  # عدل حسب لوجو مشروعك
+    
+    output_folder = os.path.join(input_folder, 'final')
+    os.makedirs(output_folder, exist_ok=True)
+    
+    ...
+  📄 run_pipeline.py
+    ── محتوى مختصر:
+    import os
+    import json
+    import requests
+    from PIL import Image
+    from io import BytesIO
+    from rembg import remove
+    import pytesseract
+    from dotenv import load_dotenv
+    
+    # ✅ تحميل متغيرات البيئة
+    ...
+  📄 scrape_products.js
+    ── محتوى مختصر:
+    const puppeteer = require('puppeteer');
+    const fs = require('fs-extra');
+    const path = require('path');
+    const readline = require('readline');
+    
+    const KEYWORDS_PATH = path.resolve(__dirname, '../products/keywords.json');
+    const RESULTS_DIR = path.resolve(__dirname, '../products/results');
+    fs.ensureDirSync(RESULTS_DIR);
+    
+    (async () => {
+    ...
+📁 backend_fastapi/
+  📄 .env
+    ── محتوى مختصر:
+    GEMINI_API_KEY=AIzaSyAhPBxyunB7ORHeKMPaqjnu0yisZCYN8VQ
+    DEBUG=True
+    API_KEY=
+    
+    # إشعار على البريد
+    EMAIL_SENDER=youremail@gmail.com
+    EMAIL_PASSWORD=xxxxxxx  # استخدم app password لو Gmail
+    EMAIL_RECEIVER=jeantrail.official@gmail.com
+    
+    # إشعار على Telegram (اختياري)
+    ...
+  📄 agent_config.json
+    ── محتوى مختصر:
+    {
+      "project_name": "JeanTrail",
+      "domain": "jeantrail.com",
+      "language": "ar,en",
+      "backend": "FastAPI",
+      "frontend": "Next.js",
+      "database": "JSON",
+      "integrations": {
+        "facebook": true,
+        "instagram": true,
+    ...
+  📄 api.py
+    ── محتوى مختصر:
+    from fastapi import FastAPI, HTTPException
+    from models import Product
+    import httpx
+    import os
+    from dotenv import load_dotenv
+    
+    load_dotenv()
+    
+    SUPABASE_URL = os.getenv("SUPABASE_URL")
+    SUPABASE_KEY = os.getenv("SUPABASE_KEY")
+    ...
+  📄 auto_uploader.py
+    ── محتوى مختصر:
+    import tkinter as tk
+    from tkinter import messagebox
+    import requests
+    import json
+    
+    # نموذج بيانات وهمي للإرسال (هيتغير لاحقًا بعد إدخال الزحف الحقيقي)
+    def send_to_api(product):
+        try:
+            response = requests.post("http://127.0.0.1:8000/products", json=product)
+            if response.status_code == 200:
+    ...
+  📄 main.py
+    ── محتوى مختصر:
+    from fastapi import FastAPI
+    from fastapi.middleware.cors import CORSMiddleware
+    from routers import products
+    
+    app = FastAPI()
+    
+    # تفعيل الـ CORS علشان React يقدر يوصل للـ API
+    app.add_middleware(
+        CORSMiddleware,
+        allow_origins=["*"],
+    ...
+  📁 models/
+  📄 models.py
+    ── محتوى مختصر:
+    from pydantic import BaseModel
+    from typing import Optional
+    
+    class Product(BaseModel):
+        title: str
+        description: Optional[str] = None
+        price: float
+        image: Optional[str] = None
+  📄 product_agent.py
+    ── محتوى مختصر:
+    import os
+    import google.generativeai as genai
+    from dotenv import load_dotenv
+    
+    # تحميل متغيرات البيئة
+    load_dotenv()
+    api_key = os.getenv("GEMINI_API_KEY")
+    
+    if not api_key:
+        raise ValueError("❌ لم يتم العثور على مفتاح API لـ Gemini في ملف .env")
+    ...
+  📄 python
+  📁 routers/
+    📄 products.py
+    ── محتوى مختصر:
+    from fastapi import APIRouter
+    from services.supabase_service import get_products_from_supabase
+    
+    router = APIRouter(prefix="/api", tags=["Products"])
+    
+    @router.get("/products")
+    def get_products():
+        return get_products_from_supabase()
+  📁 services/
+    📄 supabase_service.py
+    ── محتوى مختصر:
+    import os
+    import requests
+    from dotenv import load_dotenv
+    
+    # تحميل ملف البيئة
+    load_dotenv(dotenv_path=os.path.join(os.path.dirname(__file__), "..", ".env"))
+    
+    SUPABASE_URL = os.getenv("SUPABASE_URL")
+    SUPABASE_KEY = os.getenv("SUPABASE_KEY")
+    TABLE = "products"
+    ...
+  📄 start_and_test.bat
+    ── محتوى مختصر:
+    @echo off
+    cd /d C:\Users\dell\JeanTrail_AI\backend_fastapi
+    
+    :: تشغيل السيرفر في نافذة منفصلة
+    start "Uvicorn Server" cmd /k "C:\Users\dell\AppData\Local\Programs\Python\Python313\python.exe -m uvicorn main:app --reload"
+    
+    :: الانتظار 10 ثواني لضمان تشغيل السيرفر
+    timeout /t 10 /nobreak
+    
+    :: تشغيل test_supabase.py
+    ...
+  📄 test_env.py
+    ── محتوى مختصر:
+    from services.supabase_service import get_products_from_supabase
+    
+    get_products_from_supabase()
+  📄 test_supabase.bat
+    ── محتوى مختصر:
+    @echo off
+    cd C:\Users\dell\JeanTrail_AI\backend_fastapi
+    C:\Users\dell\AppData\Local\Programs\Python\Python313\python.exe test_supabase.py
+    pause
+  📄 test_supabase.py
+    ── محتوى مختصر:
+    from services.supabase_service import insert_product
+    
+    test_product = {
+        "title": "Test Product",
+        "description": "وصف تجريبي",
+        "price": 99.99,
+        "image": "https://via.placeholder.com/300"
+    }
+    
+    result = insert_product(test_product)
+    ...
+  📄 upload_to_github.py
+    ── محتوى مختصر:
+    import os
+    from github import Github
+    from git import Repo
+    
+    # بياناتك هنا
+    GITHUB_USERNAME = "YourUsername"
+    GITHUB_TOKEN = "ghp_YourGitHubTokenHere"
+    REPO_NAME = "jeantrail_ai"
+    PROJECT_PATH = "C:/Users/dell/JeanTrail_AI"
+    
+    ...
+  📁 utils/
+📁 blogger/
+  📄 blogger_trending.json
+    ── محتوى مختصر:
+    {
+      "tiktok": [
+        { "name": "Charli D'Amelio", "username": "charlidamelio", "followers": "150M+" },
+        { "name": "Khaby Lame", "username": "khaby.lame", "followers": "160M+" },
+        { "name": "Bella Poarch", "username": "bellapoarch", "followers": "90M+" },
+        { "name": "Addison Rae", "username": "addisonre", "followers": "88M+" },
+        { "name": "Zach King", "username": "zachking", "followers": "80M+" },
+        { "name": "Spencer X", "username": "spencerx", "followers": "55M+" },
+        { "name": "Michael Le", "username": "justmaiko", "followers": "52M+" },
+        { "name": "Dixie D’Amelio", "username": "dixiedamelio", "followers": "57M+" },
+    ...
+  📄 blogger_trending_results.json
+    ── محتوى مختصر:
+    [
+      {
+        "blogger": "Charli D'Amelio",
+        "platform": "tiktok",
+        "followers": "150M+",
+        "product_name": "Trending product by Charli D'Amelio",
+        "source_url": "https://www.tiktok.com/@charlidamelio",
+        "detected_at": "2025-07-15T04:28:47.843522"
+      },
+      {
+    ...
+  📄 monitor_bloggers.py
+    ── محتوى مختصر:
+    import os
+    import json
+    from datetime import datetime
+    
+    # ✅ المسارات
+    BASE_DIR = os.path.dirname(__file__)
+    BLOGGERS_FILE = os.path.join(BASE_DIR, 'blogger_trending.json')
+    RESULTS_FILE = os.path.join(BASE_DIR, 'blogger_trending_results.json')
+    
+    # ✅ تحميل قائمة البلوجرز حسب المنصة
+    ...
+📁 config/
+  📄 agent_config.json
+    ── محتوى مختصر:
+    {
+      "project_name": "JeanTrail",
+      "domain": "jeantrail.com",
+      "language": "ar,en",
+      "backend": "FastAPI",
+      "frontend": "Next.js",
+      "database": "JSON",
+      "integrations": {
+        "facebook": true,
+        "instagram": true,
+    ...
+📄 deploy_to_railway.py
+    ── محتوى مختصر:
+    import subprocess
+    
+    print("🚀 بدء عملية النشر إلى Railway...")
+    
+    # تنفيذ أمر git commit
+    subprocess.run(["git", "add", "."], check=True)
+    subprocess.run(["git", "commit", "-m", "🚀 نشر إلى Railway"], check=True)
+    
+    # تنفيذ push
+    subprocess.run(["git", "push", "origin", "main"], check=True)
+    ...
+📁 enhanced_uploader/
+  📄 enhancements_pipeline.py
+    ── محتوى مختصر:
+    # ✅ المسار: C:\Users\dell\JeanTrail_AI\enhanced_uploader\enhancements_pipeline.py
+    
+    import os
+    import json
+    import sys
+    import requests
+    from PIL import Image
+    from io import BytesIO
+    from rembg import remove
+    import pytesseract
+    ...
+  📄 last_processed.txt
+    ── محتوى مختصر:
+    0
+  📄 uploaded_products.json
+    ── محتوى مختصر:
+    []
+📄 generate_full_map.py
+    ── محتوى مختصر:
+    import os
+    
+    def generate_project_map(start_path='.', indent=0, ignore_dirs=None, output_lines=None):
+        if ignore_dirs is None:
+            ignore_dirs = {'.git', '__pycache__', 'node_modules', '.venv', 'env'}
+    
+        if output_lines is None:
+            output_lines = []
+    
+        for item in sorted(os.listdir(start_path)):
+    ...
+📄 generate_map.py
+    ── محتوى مختصر:
+    import os
+    
+    def scan_directory(path, output_file):
+        with open(output_file, 'w', encoding='utf-8') as f:
+            for root, dirs, files in os.walk(path):
+                f.write(f"\n📁 {root}\n")
+                for file in files:
+                    filepath = os.path.join(root, file)
+                    f.write(f"\n📄 {file}\n")
+                    try:
+    ...
+📄 generate_project_map.py
+    ── محتوى مختصر:
+    import os
+    
+    def generate_project_map(start_path='.', indent=0, ignore_dirs=None, output_lines=None):
+        if ignore_dirs is None:
+            ignore_dirs = {'.git', '__pycache__', 'node_modules', '.venv', 'env'}
+    
+        if output_lines is None:
+            output_lines = []
+    
+        for item in sorted(os.listdir(start_path)):
+    ...
+📁 images/
+  📁 portable_blender_filtered/
+  📁 portable_blender_final/
+    📄 H15e6976facb840e59c8b9a04969db13bv.png_300x300.png
+    📄 H368698a1f56943ca82378d096f99cec4v.png_300x300.png
+    📄 H3873e8c660bb4a73a2a4fd143b9b88a1F.png_300x300.png
+    📄 H531ba84367d7412f9aebccba006cd17eA.png_300x300.png
+    📄 H54593f614e1c4ef28a196bc21dd6e692m.png_300x300.png
+    📄 H8e5e0ebfb0a94b3bb7e4083c32a2bf47c.png_300x300.png
+    📄 H92597e05d8db4ab682374632ae5764849.png_300x300.png
+    📄 Hb3ddd4d7106d450b93c4ef5a9ecf1643V.png_300x300.png
+    📄 Hd9673102d43a47b4861bec758f2ead88o.png_300x300.png
+  📁 portable_blender_nobg/
+📄 init_state_files.py
+    ── محتوى مختصر:
+    import os
+    import json
+    
+    BASE_DIR = os.path.abspath(".")
+    progress_file = os.path.join(BASE_DIR, "last_processed.txt")
+    uploaded_file = os.path.join(BASE_DIR, "uploaded_products.json")
+    blogger_result_file = os.path.join(BASE_DIR, "blogger", "blogger_trending_results.json")
+    
+    # 📝 last_processed.txt
+    if not os.path.exists(progress_file):
+    ...
+📁 jeantrail_frontend/
+  📄 .gitignore
+    ── محتوى مختصر:
+    # Logs
+    logs
+    *.log
+    npm-debug.log*
+    yarn-debug.log*
+    yarn-error.log*
+    pnpm-debug.log*
+    lerna-debug.log*
+    
+    node_modules
+    ...
+  📄 README.md
+    ── محتوى مختصر:
+    # React + Vite
+    
+    This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+    
+    Currently, two official plugins are available:
+    
+    - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
+    - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+    
+    ## Expanding the ESLint configuration
+    ...
+  📄 eslint.config.js
+    ── محتوى مختصر:
+    import js from '@eslint/js'
+    import globals from 'globals'
+    import reactHooks from 'eslint-plugin-react-hooks'
+    import reactRefresh from 'eslint-plugin-react-refresh'
+    import { defineConfig, globalIgnores } from 'eslint/config'
+    
+    export default defineConfig([
+      globalIgnores(['dist']),
+      {
+        files: ['**/*.{js,jsx}'],
+    ...
+  📄 index.html
+    ── محتوى مختصر:
+    <!doctype html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Vite + React</title>
+      </head>
+      <body>
+        <div id="root"></div>
+    ...
+  📄 package-lock.json
+  📄 package.json
+    ── محتوى مختصر:
+    {
+      "name": "jeantrail_frontend",
+      "private": true,
+      "version": "0.0.0",
+      "type": "module",
+      "scripts": {
+        "dev": "vite",
+        "build": "vite build",
+        "lint": "eslint .",
+        "preview": "vite preview"
+    ...
+  📁 public/
+    📄 logo.png
+  📁 src/
+    📄 App.css
+    ── محتوى مختصر:
+    #root {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 2rem;
+      text-align: center;
+    }
+    
+    .logo {
+      height: 6em;
+      padding: 1.5em;
+    ...
+    📄 App.jsx
+    ── محتوى مختصر:
+    import ShopPage from "./pages/ShopPage";
+    import { useEffect, useState } from "react";
+    import { Routes, Route, Link } from "react-router-dom";
+    import { motion } from "framer-motion";
+    import { Menu } from "lucide-react";
+    import axios from "axios";
+    
+    // ======================== Header ==========================
+    function Header() {
+      const [menuOpen, setMenuOpen] = useState(false);
+    ...
+    📁 assets/
+      📄 logo.png
+    📄 index.css
+    ── محتوى مختصر:
+    :root {
+      font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+      line-height: 1.5;
+      font-weight: 400;
+    
+      color-scheme: light dark;
+      color: rgba(255, 255, 255, 0.87);
+      background-color: #242424;
+    
+      font-synthesis: none;
+    ...
+    📄 main.jsx
+    ── محتوى مختصر:
+    import React from "react";
+    import ReactDOM from "react-dom/client";
+    import { BrowserRouter, Routes, Route } from "react-router-dom";
+    import App from "./App";
+    import ProductDetailsPage from "./pages/ProductDetailsPage";
+    import CheckoutPage from "./pages/CheckoutPage";
+    import AccountPage from "./pages/AccountPage";
+    import CartPage from "./pages/CartPage";
+    
+    ReactDOM.createRoot(document.getElementById("root")).render(
+    ...
+    📁 pages/
+      📄 AccountPage.jsx
+    ── محتوى مختصر:
+    import { motion } from "framer-motion";
+    
+    export default function AccountPage() {
+      return (
+        <motion.div className="max-w-md mx-auto py-12 px-6"
+          initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+          <h2 className="text-2xl font-bold mb-6">My Account</h2>
+          <form className="space-y-4">
+            <input className="w-full border p-2 rounded" placeholder="Email" />
+            <input className="w-full border p-2 rounded" placeholder="Password" type="password" />
+    ...
+      📄 CartPage.jsx
+    ── محتوى مختصر:
+    import { useState } from "react";
+    import { useNavigate } from "react-router-dom";
+    import { motion } from "framer-motion";
+    
+    export default function CartPage() {
+      const [cartItems, setCartItems] = useState([
+        {
+          id: 1,
+          name: "Portable Blender",
+          price: 29.99,
+    ...
+      📄 CheckoutPage.jsx
+    ── محتوى مختصر:
+    import { motion } from "framer-motion";
+    
+    export default function CheckoutPage() {
+      return (
+        <motion.div className="max-w-2xl mx-auto py-10 px-6"
+          initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+          <h2 className="text-2xl font-bold mb-6">Checkout</h2>
+          <form className="space-y-4">
+            <input className="w-full border p-2 rounded" placeholder="Full Name" />
+            <input className="w-full border p-2 rounded" placeholder="Email" />
+    ...
+      📄 ProductDetailsPage.jsx
+    ── محتوى مختصر:
+    import { useEffect, useState } from "react";
+    import { useParams } from "react-router-dom";
+    import { motion } from "framer-motion";
+    
+    export default function ProductDetailsPage() {
+      const { id } = useParams();
+      const [product, setProduct] = useState(null);
+    
+      useEffect(() => {
+        fetch(`http://localhost:8000/api/products/${id}`)
+    ...
+      📄 ShopPage.jsx
+    ── محتوى مختصر:
+    import { useEffect, useState } from "react";
+    import { Link } from "react-router-dom";
+    import { motion } from "framer-motion";
+    
+    export default function ShopPage() {
+      const [products, setProducts] = useState([]);
+    
+      useEffect(() => {
+        fetch("http://127.0.0.1:8000/api/products")
+          .then(res => res.json())
+    ...
+  📄 vite.config.js
+    ── محتوى مختصر:
+    import { defineConfig } from 'vite'
+    import react from '@vitejs/plugin-react'
+    
+    // https://vite.dev/config/
+    export default defineConfig({
+      plugins: [react()],
+    })
+📄 last_processed.txt
+    ── محتوى مختصر:
+    0
+📄 logo.png
+📄 move_files.py
+    ── محتوى مختصر:
+    import os
+    import shutil
+    
+    # المسار الأساسي للمشروع
+    base_dir = os.path.abspath(os.path.dirname(__file__))
+    
+    # المسارات
+    source_paths = [
+        "run_pipeline.py",
+        "scripts/results/portable_blender.json",
+    ...
+📁 products/
+  📄 babies_products.json
+    ── محتوى مختصر:
+    {
+      "category": "babies",
+      "products": [
+        {
+          "type": "ملابس"
+        },
+        {
+          "type": "أحذية"
+        }
+      ]
+    ...
+  📄 boys_products.json
+    ── محتوى مختصر:
+    {
+      "category": "boys",
+      "products": [
+        {
+          "type": "ملابس"
+        },
+        {
+          "type": "أحذية رياضية"
+        },
+        {
+    ...
+  📄 girls_products.json
+    ── محتوى مختصر:
+    {
+      "category": "girls",
+      "products": [
+        {
+          "type": "ملابس"
+        },
+        {
+          "type": "أحذية رياضية"
+        },
+        {
+    ...
+  📄 keywords.json
+    ── محتوى مختصر:
+    {
+      "men": [
+        "men jeans", "men t-shirts", "men jackets", "men hoodies", "men shoes", 
+        "men classic shoes", "men sneakers", "men socks", "men wallets", 
+        "men accessories", "men underwear", "men belts", "men watches"
+      ],
+      "women": [
+        "women dresses", "women jeans", "women tops", "women jackets", "women shoes", 
+        "women classic shoes", "women sneakers", "women socks", "women wallets", 
+        "women accessories", "women underwear", "women belts", "women watches"
+    ...
+  📄 men_products.json
+    ── محتوى مختصر:
+    {
+      "category": "men",
+      "products": [
+        {
+          "type": "ملابس"
+        },
+        {
+          "type": "أحذية رياضية"
+        },
+        {
+    ...
+  📄 pets_products.json
+    ── محتوى مختصر:
+    {
+      "category": "pets",
+      "products": [
+        {
+          "type": "ملابس"
+        },
+        {
+          "type": "أحذية"
+        }
+      ]
+    ...
+  📄 trendy_products.json
+    ── محتوى مختصر:
+    {
+      "category": "trendy",
+      "products": [
+        {
+          "type": "منتجات تريندي متنوعة من ترشيحات البلوجرز"
+        }
+      ]
+    }
+  📄 women_products.json
+    ── محتوى مختصر:
+    {
+      "category": "women",
+      "products": [
+        {
+          "type": "ملابس"
+        },
+        {
+          "type": "أحذية رياضية"
+        },
+        {
+    ...
+📄 project_map.txt
+    ── محتوى مختصر:
+    🧭 Project Map:
+    ==================================================
+    📄 .env
+        ── محتوى مختصر:
+        GITHUB_TOKEN=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
+        GITHUB_USERNAME=1youandme
+        REPO_NAME=jeantrail-dashboard
+        
+        # SUPABASE
+        SUPABASE_URL=https://csuoqssdpzcemacqkwpy.supabase.co
+    ...
+📄 python
+📄 requirements.txt
+    ── محتوى مختصر:
+    requests
+    Pillow
+    rembg
+    pytesseract
+    python-dotenv
+    tenacity
+    openai
+📄 run_pipeline.py
+    ── محتوى مختصر:
+    import os
+    import json
+    import sys
+    import glob
+    import requests
+    from PIL import Image
+    from io import BytesIO
+    from rembg import remove
+    import pytesseract
+    from dotenv import load_dotenv
+    ...
+📄 run_server.bat
+    ── محتوى مختصر:
+    @echo off
+    cd C:\Users\dell\JeanTrail_AI\backend_fastapi
+    C:\Users\dell\AppData\Local\Programs\Python\Python313\python.exe -m uvicorn main:app --reload
+    pause
+📁 scripts/
+  📁 alibaba/
+    📄 add_logo.py
+    ── محتوى مختصر:
+    import os
+    from PIL import Image
+    
+    LOGO_PATH = r"C:\Users\dell\JeanTrail_AI\jeantrail_frontend\public\logo.png"
+    INPUT_DIR = r"C:\Users\dell\JeanTrail_AI\images\portable_blender_nobg"
+    OUTPUT_DIR = r"C:\Users\dell\JeanTrail_AI\images\portable_blender_final"
+    
+    os.makedirs(OUTPUT_DIR, exist_ok=True)
+    logo = Image.open(LOGO_PATH).convert("RGBA")
+    logo = logo.resize((80, 80))  # حجم اللوجو النهائي
+    ...
+    📄 download_images.js
+    ── محتوى مختصر:
+    const fs = require("fs-extra");
+    const path = require("path");
+    const axios = require("axios");
+    
+    const INPUT_JSON = path.join(__dirname, "..", "results", "portable_blender.json");
+    const IMAGES_DIR = path.join(__dirname, "..", "images", "portable_blender");
+    
+    (async () => {
+      await fs.ensureDir(IMAGES_DIR);
+      const products = await fs.readJson(INPUT_JSON);
+    ...
+    📄 filter_text_images.py
+    ── محتوى مختصر:
+    import os
+    from PIL import Image
+    import pytesseract
+    import shutil
+    
+    # ⚙️ مسارات الصور
+    INPUT_DIR = r"C:\Users\dell\JeanTrail_AI\images\portable_blender"
+    OUTPUT_DIR = r"C:\Users\dell\JeanTrail_AI\images\filtered_portable_blender"
+    
+    # 📂 إنشاء مجلد الإخراج إن لم يكن موجودًا
+    ...
+    📄 process_from_urls.py
+    ── محتوى مختصر:
+    # ✅ الملف: process_from_urls.py
+    # 📁 المسار: C:\Users\dell\JeanTrail_AI\scripts\alibaba\process_from_urls.py
+    
+    import os
+    import json
+    import requests
+    from PIL import Image
+    from rembg import remove
+    from io import BytesIO
+    import pytesseract
+    ...
+    📄 process_images_from_urls.py
+    ── محتوى مختصر:
+    # ✅ الملف: process_images_from_urls.py
+    # 📁 المسار: C:\Users\dell\JeanTrail_AI\scripts\alibaba
+    
+    import requests
+    from PIL import Image, ImageDraw
+    from io import BytesIO
+    import os
+    import json
+    
+    from rembg import remove
+    ...
+    📄 remove_background.py
+    ── محتوى مختصر:
+    import os
+    from rembg import remove
+    from PIL import Image
+    
+    INPUT_DIR = r"C:\Users\dell\JeanTrail_AI\images\portable_blender_filtered"
+    OUTPUT_DIR = r"C:\Users\dell\JeanTrail_AI\images\portable_blender_nobg"
+    
+    os.makedirs(OUTPUT_DIR, exist_ok=True)
+    
+    for file_name in os.listdir(INPUT_DIR):
+    ...
+    📄 scrape_products.js
+    ── محتوى مختصر:
+    // ✅ Alibaba Scraper – شامل جميع الصفحات
+    const puppeteer = require('puppeteer');
+    const fs = require('fs-extra');
+    const path = require('path');
+    const readline = require('readline');
+    
+    const KEYWORD = process.env.KEYWORD || 'men shoes'; // 🧠 استخدم متغير خارجي لتحديد الكلمة المفتاحية
+    const RESULTS_FILE = path.resolve(__dirname, `../results/${KEYWORD.replace(/\s+/g, '_')}.json`);
+    
+    (async () => {
+    ...
+  📁 images/
+    📁 portable_blender/
+  📁 results/
+    📄 portable_blender.json
+    📄 portable_blender_filtered.json
+    ── محتوى مختصر:
+    [
+      {
+        "title": "Portable Fruit Juicer USB Blender Fruit Mixer Rechargeable Outdoor Juicer Portable Mini Juice Mixer",
+        "image_url": "https://s.alicdn.com/@sc04/kf/He3e641e3d8674bffb1ab8998355eb9f69.jpg_300x300.jpg",
+        "price": "",
+        "min_order": "",
+        "shipping": "",
+        "link": "https://www.alibaba.com/product-detail/Portable-Fruit-Juicer-USB-Blender-Fruit_1600871333316.html"
+      },
+      {
+    ...
+📄 smart_upload_to_github.py
+    ── محتوى مختصر:
+    import os
+    from dotenv import load_dotenv
+    import subprocess
+    
+    # تحميل متغيرات البيئة من .env
+    load_dotenv()
+    
+    # قراءة القيم من .env
+    GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
+    GITHUB_USERNAME = os.getenv("GITHUB_USERNAME")
+    ...
+📄 supabaseClient.js
+    ── محتوى مختصر:
+    import { createClient } from '@supabase/supabase-js';
+    
+    const supabaseUrl = 'https://jofycqthzpgjjnbvqcrx.supabase.co';
+    const supabaseAnonKey = 'ضع هنا الـ anon key'; // انسخه من Supabase
+    
+    export const supabase = createClient(supabaseUrl, supabaseAnonKey);
+📄 upload_to_github.py
+    ── محتوى مختصر:
+    import os
+    from dotenv import load_dotenv
+    import subprocess
+    
+    load_dotenv()
+    GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
+    GITHUB_USER = "1youandme"
+    REPO_NAME = "jeantrail-dashboard"
+    PROJECT_PATH = os.path.abspath(".")
+    
+    ...
+📄 uploaded_products.json
+    ── محتوى مختصر:
+    []
+📁 workflows/
+  📄 scraper.yml
+    ── محتوى مختصر:
+    name: 🔎 Scrape Alibaba Products
+    
+    on:
+      workflow_dispatch:       # يدوي
+      schedule:
+        - cron: '30 2 * * *'   # يوميًا الساعة 2:30 صباحًا UTC
+    
+    jobs:
+      scrape-products:
+        runs-on: ubuntu-latest
+    ...
+📁 متابعة الاستهلاك/
+  📄 .env
+    ── محتوى مختصر:
+    # إشعار على البريد
+    EMAIL_SENDER=youremail@gmail.com
+    EMAIL_PASSWORD=xxxxxxx  # استخدم app password لو Gmail
+    EMAIL_RECEIVER=jeantrail.official@gmail.com
+    
+    # إشعار على Telegram (اختياري)
+    TELEGRAM_TOKEN=123456:ABCDEF
+    TELEGRAM_CHAT_ID=123456789
+    
+    # VERCEL
+    ...
+  📄 usage_monitor.py
+    ── محتوى مختصر:
+    def check_railway_usage():
+        headers = {
+            "Authorization": f"Bearer {RAILWAY_TOKEN}",
+            "Content-Type": "application/json"
+        }
+    
+        query = {
+            "query": """
+                {
+                    me {
+    ...
