@@ -1,0 +1,50 @@
+name: 🤳 Full Auto Blogger Upload
+
+on:
+  workflow_dispatch:        # ✅ يمكن تشغيله يدويًا
+  schedule:
+    - cron: '45 3 * * *'    # ⏰ يوميًا الساعة 3:45 صباحًا UTC (6:45 صباحًا بتوقيت مصر)
+
+jobs:
+  run-blogger-pipeline:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🧾 Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: 🐍 Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: 📦 Install Requirements
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r enhanced_uploader/requirements.txt
+
+      - name: 🚀 Run Blogger Upload Script
+        id: run
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: python enhanced_uploader/enhancements_pipeline.py
+        continue-on-error: true
+
+      - name: 📝 Commit Upload State
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "actions@github.com"
+          git add enhanced_uploader/uploaded_bloggers.json
+          git add enhanced_uploader/last_processed_bloggers.txt
+          git diff --cached --quiet || git commit -m "📦 Auto update blogger upload state"
+          git push
+
+      - name: 🔁 Re-run if needed
+        if: steps.run.outcome == 'failure' && steps.run.conclusion == 'failure'
+        run: |
+          echo "🔁 Re-dispatching Blogger Workflow due to pending products..."
+          gh workflow run $(basename ${{ github.workflow }}) --ref ${{ github.ref }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
